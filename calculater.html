@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Calculator</title> 
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+ </head> 
+ <body class="bg-gray-100"> 
+  <div class="container mx-auto mt-8 px-4"> 
+   <h1 class="text-3xl text-center mb-6">Calculator</h1> 
+   <div class="bg-white p-4 rounded-lg shadow-md"> 
+    <input type="text" id="display" class="w-full mb-4 p-2 border border-gray-300 rounded text-2xl text-right"> 
+    <div class="grid grid-cols-4 gap-2"> <button onclick="appendNumber('7')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">7</button> <button onclick="appendNumber('8')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">8</button> <button onclick="appendNumber('9')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">9</button> <button onclick="appendOperation('+')" class="bg-blue-200 hover:bg-blue-300 p-2 rounded">+</button> <button onclick="appendNumber('4')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">4</button> <button onclick="appendNumber('5')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">5</button> <button onclick="appendNumber('6')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">6</button> <button onclick="appendOperation('-')" class="bg-blue-200 hover:bg-blue-300 p-2 rounded">-</button> <button onclick="appendNumber('1')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">1</button> <button onclick="appendNumber('2')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">2</button> <button onclick="appendNumber('3')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded">3</button> <button onclick="appendOperation('')" class="bg-blue-200 hover:bg-blue-300 p-2 rounded"></button> <button onclick="appendNumber('0')" class="bg-gray-200 hover:bg-gray-300 p-2 rounded col-span-2">0</button> <button onclick="clearDisplay()" class="bg-red-200 hover:bg-red-300 p-2 rounded">C</button> <button onclick="calculate()" class="bg-green-200 hover:bg-green-300 p-2 rounded">=</button> <button onclick="appendOperation('/')" class="bg-blue-200 hover:bg-blue-300 p-2 rounded">/</button> 
+    </div> 
+   </div> 
+  </div> 
+  <script>
+    function appendNumber(num) {
+      document.getElementById("display").value += num;
+    }
+
+    function appendOperation(op) {
+      document.getElementById("display").value += op;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function calculate() {
+      const expression = document.getElementById("display").value;
+      const result = eval(expression);
+      document.getElementById("display").value = result;
+    }
+  </script> 
+ </body>
+</html>
